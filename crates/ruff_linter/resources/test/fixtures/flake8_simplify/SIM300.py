@@ -40,3 +40,4 @@ age == JediOrder.YODA
 SECONDS_IN_DAY == 60 * 60 * 24 # Error in 0.1.8
 SomeClass().settings.SOME_CONSTANT_VALUE > (60 * 60) # Error in 0.1.8
 {"non-empty-dict": "is-ok"} == DummyHandler.CONFIG
+11 == SomeClass().settings.SOME_CONSTANT_VALUE

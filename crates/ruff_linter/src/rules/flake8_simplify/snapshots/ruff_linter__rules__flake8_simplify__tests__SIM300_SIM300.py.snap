@@ -351,4 +351,20 @@ SIM300.py:24:1: SIM300 [*] Yoda conditions are discouraged, use `{} == DummyHand
 26 26 | # OK
 27 27 | compare == "yoda"
 
+SIM300.py:43:1: SIM300 [*] Yoda conditions are discouraged, use `SomeClass().settings.SOME_CONSTANT_VALUE == 11` instead
+   |
+41 | SomeClass().settings.SOME_CONSTANT_VALUE > (60 * 60) # Error in 0.1.8
+42 | {"non-empty-dict": "is-ok"} == DummyHandler.CONFIG
+43 | 11 == SomeClass().settings.SOME_CONSTANT_VALUE
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ SIM300
+   |
+   = help: Replace Yoda condition with `SomeClass().settings.SOME_CONSTANT_VALUE == 11`
+
+ℹ Safe fix
+40 40 | SECONDS_IN_DAY == 60 * 60 * 24 # Error in 0.1.8
+41 41 | SomeClass().settings.SOME_CONSTANT_VALUE > (60 * 60) # Error in 0.1.8
+42 42 | {"non-empty-dict": "is-ok"} == DummyHandler.CONFIG
+43    |-11 == SomeClass().settings.SOME_CONSTANT_VALUE
+   43 |+SomeClass().settings.SOME_CONSTANT_VALUE == 11
+
 
